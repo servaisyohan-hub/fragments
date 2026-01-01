@@ -1,0 +1,484 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page {
+  display: none;
+  max-width: 480px;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  background: #020617;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.page.active {
+  display: block;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
+
+p {
+  margin-bottom: 24px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(56, 189, 248, 0.3);
+  background: #0ea5e9;
+}
+
+.btn-retour {
+  margin-top: 20px;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* On enlève les effets de hover globaux sur ce bouton */
+.btn-retour:hover {
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Image du bouton retour */
+.img-retour {
+  display: block;
+  width: 120px;   /* ajuste la taille si tu veux */
+  height: auto;
+}
+
+/* Pour éviter les contours bleus moches au clic */
+.btn-retour {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.btn-retour:focus,
+.btn-retour:focus-visible {
+  outline: none;
+}
+
+
+.choix-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-langue,
+.btn-scenario {
+  width: 100%;
+  justify-content: center;
+}
+
+.grille-sons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-son {
+  padding: 24px 12px;
+  font-size: 1.1rem;
+  background: #1e293b;
+  color: #e5e7eb;
+  border-radius: 16px;
+}
+
+.case-son.active {
+  outline: 3px solid #38bdf8;
+  background: #0f172a;
+}
+
+
+/* Page d'accueil */
+#page-accueil {
+  background: #000000; /* tu peux changer la couleur si tu veux */
+}
+
+/* Quand la page d'accueil est active, on la centre joliment */
+#page-accueil.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-accueil {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* ----- PAGE LANGUES ----- */
+
+#page-langues {
+  background: #000000;
+}
+
+#langues-wrapper {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* L'image des drapeaux */
+.image-langues {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Boutons invisibles par-dessus les drapeaux */
+.zone-langue {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Pas de halo, pas de fond au survol ou au clic */
+.zone-langue:hover,
+.zone-langue:active,
+.zone-langue:focus,
+.zone-langue:focus-visible {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Position approximative des 4 drapeaux (en %) */
+.zone-fr {
+  top: 29%;
+  left: 15%;
+  width: 30%;
+  height: 16%;
+
+}
+
+.zone-en {
+  top: 29%;
+  right: 15%;
+  width: 30%;
+  height: 16%;
+}
+
+.zone-de {
+  bottom: 34%;
+  left: 15%;
+  width: 30%;
+  height: 16%;
+}
+
+.zone-it {
+  bottom: 34%;
+  right: 15%;
+  width: 30%;
+  height: 16%;
+}
+
+
+/* ----- PAGE SCENARIOS ----- */
+
+#page-scenarios {
+  background: #000000;
+}
+
+#scenarios-wrapper {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.image-scenarios {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Boutons invisibles pour les scénarios */
+.zone-scenario {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Pas de halo, pas de fond */
+.zone-scenario:hover,
+.zone-scenario:active,
+.zone-scenario:focus,
+.zone-scenario:focus-visible {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Position approx. de la pièce SOLARA dans l'image */
+.zone-solara {
+  top: 30%;
+  left: 8%;
+  width: 43%;
+  height: 26%;
+
+
+}
+
+
+/* ----- PAGE SCÉNARIO SOLARA ----- */
+
+#page-scenario {
+  background: #000000;
+}
+
+#scenario-solara-wrapper {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.image-scenario-solara {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Boutons invisibles pour les sons de Solara */
+.zone-son-solara,
+.zone-son-texte,
+.zone-son-tente,
+.zone-son-intro {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Pas de surbrillance / halo pour l’instant */
+.zone-son-solara:hover,
+.zone-son-solara:active,
+.zone-son-solara:focus,
+.zone-son-solara:focus-visible,
+.zone-son-texte:hover,
+.zone-son-texte:active,
+.zone-son-texte:focus,
+.zone-son-texte:focus-visible,
+.zone-son-tente:hover,
+.zone-son-tente:active,
+.zone-son-tente:focus,
+.zone-son-tente:focus-visible,
+.zone-son-intro:hover,
+.zone-son-intro:active,
+.zone-son-intro:focus,
+.zone-son-intro:focus-visible {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+/* Position approximative du premier bouton (carré rose) */
+.zone-son-solara {
+  top: 40%;
+  left: 16%;
+  width: 16%;
+  height: 10%;
+
+}
+
+/* Position de la case à côté (tente) */
+.zone-son-tente {
+  top: 40%;   /* même hauteur que le carré rose */
+  left: 40%;  /* un peu plus à droite */
+  width: 16%;
+  height: 10%;
+}
+
+/* Style commun des icônes bleues */
+.zone-son-texte {
+  /* pas de position ici, seulement le style général */
+}
+
+/* Icône bleue 1 (celle du haut) */
+.zone-texte1 {
+  top: 42%;
+  right: 11%;
+  width: 16%;
+  height: 10%;
+}
+
+/* Icône bleue 2 */
+.zone-texte2 {
+  top: 54%;
+  right: 11%;
+  width: 16%;
+  height: 10%;
+}
+
+/* Icône bleue 3 */
+.zone-texte3 {
+  top: 66%;
+  right: 11%;
+  width: 15%;
+  height: 10%;
+}
+
+/* Icône bleue 4 */
+.zone-texte4 {
+  top: 78%;
+  right: 11%;
+  width: 16%;
+  height: 10%;
+}
+
+/* Icône bleue 5 (celle du bas) */
+.zone-texte5 {
+  top: 90%;
+  right: 11%;
+  width: 16%;
+  height: 10%;
+}
+
+
+/* Position du cadre INTRODUCTION */
+.zone-son-intro {
+  top: 22%;    /* à ajuster si besoin */
+  left: 12%;   /* idem */
+  width: 70%;  /* couvre tout le panneau "INTRODUCTION" */
+  height: 9%;
+}
+
+
+/* ----- TEXTE "SOON AVAILABLE" SUR LE DRAPEAU ANGLAIS ----- */
+
+.zone-bientot {
+  cursor: default; /* pas de main 'clic' */
+}
+
+/* Style commun du texte "bientôt" */
+.zone-bientot::after {
+  position: absolute;
+  top: 45%;               /* plus haut qu'avant (50%) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow: 0 0 4px #000000, 0 0 8px #000000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Texte spécifique par langue */
+.zone-bientot-en::after {
+  content: "SOON AVAILABLE";
+}
+
+.zone-bientot-de::after {
+  content: "Bald verfügbar";
+}
+
+.zone-bientot-it::after {
+  content: "Presto disponibile";
+}
+
+/* Apparition au survol */
+.zone-bientot:hover::after {
+  opacity: 1;
+}
+
+
+/* ----- OVERLAY "PRENDRE" POUR SOLARA ----- */
+
+.overlay-prendre {
+  position: fixed;          /* recouvre tout l'écran */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;            /* caché par défaut */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  /* Si tu veux assombrir le fond :
+     background: rgba(0, 0, 0, 0.5); 
+     Sinon laisse transparent : */
+  background: rgba(0, 0, 0, 0.0);
+}
+
+/* Quand on ajoute la classe .visible en JS, il apparaît */
+.overlay-prendre.visible {
+  display: flex;
+}
+
+/* L'image du cadre au centre */
+.overlay-image {
+  max-width: 80%;
+  height: auto;
+  cursor: pointer;
+}
