@@ -482,3 +482,34 @@ button:hover {
   height: auto;
   cursor: pointer;
 }
+
+/* ----- OVERLAY INSTRUCTIONS POUR SOLARA ----- */
+
+.overlay-instructions {
+  position: fixed;          /* recouvre tout l'écran */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;            /* caché par défaut */
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;            /* au-dessus de tout, même de overlay-prendre */
+
+  /* assombrir un peu si tu veux */
+  /* background: rgba(0, 0, 0, 0.3); */
+  background: rgba(0, 0, 0, 0.0);
+}
+
+.overlay-instructions.visible {
+  display: flex;
+}
+
+.overlay-instructions-image {
+  max-width: 55%;   /* largeur max = 80% de la largeur de l’écran */
+  max-height: 55vh; /* hauteur max = 70% de la hauteur de l’écran */
+  height: auto;     /* garde les proportions */
+  cursor: pointer;
+  margin-top: -26vh;  /* remonte l'image */
+}
+

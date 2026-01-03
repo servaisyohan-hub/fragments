@@ -38,7 +38,16 @@ function montrerPage(idPage) {
   if (page) {
     page.classList.add("active");
   }
+
+  // Si on arrive sur la page du scénario Solara, on affiche les instructions
+  if (idPage === "page-scenario") {
+    const overlayInstr = document.getElementById("overlay-instructions");
+    if (overlayInstr) {
+      overlayInstr.classList.add("visible");
+    }
+  }
 }
+
 
 function allerALangues() {
   montrerPage("page-langues");
@@ -237,6 +246,13 @@ function jouerIntroSolara() {
 
   introSolaraAudio.currentTime = 0;
   introSolaraAudio.play();
+}
+
+function fermerInstructions() {
+  const overlayInstr = document.getElementById("overlay-instructions");
+  if (overlayInstr) {
+    overlayInstr.classList.remove("visible");
+  }
 }
 
 function validerPrendre() {
