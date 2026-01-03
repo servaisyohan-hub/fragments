@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mon appli sons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap"
+/>
+
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- PAGE 1 : ACCUEIL -->
+  <section id="page-accueil" class="page active">
+    <img
+      src="images/accueil.png"
+      alt="Fragments"
+      class="image-accueil"
+      onclick="allerALangues()"
+    />
+  </section>
+
+    <!-- PAGE 2 : CHOIX DE LA LANGUE -->
+  <section id="page-langues" class="page">
+    <div id="langues-wrapper">
+      <img
+        src="images/langues.png"
+        alt="Choix de la langue"
+        class="image-langues"
+      />
+
+      <!-- Zones cliquables (boutons invisibles) -->
+
+             <!-- Zones de langue -->
+  <button
+    class="zone-langue zone-fr"
+    onclick="choisirLangue('fr')"
+    aria-label="Français"
+  ></button>
+
+  <!-- Drapeau anglais -->
+  <div
+    class="zone-langue zone-en zone-bientot zone-bientot-en"
+    aria-label="English (soon available)"
+  ></div>
+
+  <!-- Drapeau allemand -->
+  <div
+    class="zone-langue zone-de zone-bientot zone-bientot-de"
+    aria-label="BALD VERFUGBAR"
+  ></div>
+
+  <!-- Drapeau italien -->
+  <div
+    class="zone-langue zone-it zone-bientot zone-bientot-it"
+    aria-label="PRESTO DISPONIBILE"
+  ></div>
+
+
+    <button class="btn-retour" onclick="retourAccueil()">
+  <img src="images/retour.png" alt="Retour" class="img-retour" />
+</button>
+
+  </section>
+
+
+    <!-- PAGE 3 : CHOIX DU SCÉNARIO -->
+  <section id="page-scenarios" class="page">
+    <div id="scenarios-wrapper">
+      <img
+        src="images/scenarios.png"
+        alt="Choix du scénario"
+        class="image-scenarios"
+      />
+
+      <!-- Zone cliquable sur la pièce SOLARA -->
+      <button
+        class="zone-scenario zone-solara"
+        onclick="ouvrirScenario('scenario1')"
+        aria-label="Solara"
+      ></button>
+    </div>
+
+    <button class="btn-retour" onclick="allerALangues()">
+  <img src="images/retour.png" alt="Retour" class="img-retour" />
+</button>
+
+  </section>
+
+ <!-- PAGE 4 : INTERFACE DU SCÉNARIO SOLARA -->
+<section id="page-scenario" class="page">
+  <h1 id="titre-scenario" style="display: none;"></h1>
+
+  <div id="scenario-solara-wrapper">
+    <img
+      src="images/solara-ui.png"
+      alt="Interface Solara"
+      class="image-scenario-solara"
+    />
+
+    <!-- Carré (désert) -->
+    <button
+      class="zone-son-solara"
+      onclick="jouerSonDesert01()"
+      aria-label="Desert 01"
+    ></button>
+
+    <!-- Case tente -->
+    <button
+      class="zone-son-tente"
+      onclick="jouerSonTente01()"
+      aria-label="Tente 01"
+    ></button>
+
+    <!-- Cadre INTRODUCTION -->
+    <button
+      class="zone-son-intro"
+      onclick="jouerIntroSolara()"
+      aria-label="Introduction Solara"
+    ></button>
+
+    <!-- Icône bleue 1 -->
+    <button
+      class="zone-son-texte zone-texte1"
+      onclick="jouerTexteSequence('t1', 'texte01.mp3')"
+      aria-label="Texte 01"
+    ></button>
+
+    <!-- Icône bleue 2 -->
+    <button
+      class="zone-son-texte zone-texte2"
+      onclick="jouerTexteSequence('t2', 'texte02.mp3')"
+      aria-label="Texte 02"
+    ></button>
+
+    <!-- Icône bleue 3 -->
+    <button
+      class="zone-son-texte zone-texte3"
+      onclick="jouerTexteSequence('t3', 'texte03.mp3')"
+      aria-label="Texte 03"
+    ></button>
+
+    <!-- Icône bleue 4 -->
+    <button
+      class="zone-son-texte zone-texte4"
+      onclick="jouerTexteSequence('t4', 'texte04.mp3')"
+      aria-label="Texte 04"
+    ></button>
+
+    <!-- Icône bleue 5 -->
+    <button
+      class="zone-son-texte zone-texte5"
+      onclick="jouerTexteSequence('t5', 'texte05.mp3')"
+      aria-label="Texte 05"
+    ></button>
+  </div>
+
+  <!-- Overlay INSTRUCTIONS (affiché à l'ouverture de la page Solara) -->
+  <div id="overlay-instructions" class="overlay-instructions">
+    <img
+      src="images/instruction_FR.png"
+      alt="Instructions"
+      class="overlay-instructions-image"
+      onclick="fermerInstructions()"
+    />
+  </div>
+
+  <!-- Cadre "Prendre" qui apparaît après l'introduction -->
+  <div id="overlay-prendre" class="overlay-prendre">
+    <img
+      src="images/cadre prendre rond.png"
+      alt="Prendre"
+      class="overlay-image"
+      onclick="validerPrendre()"
+    />
+  </div>
+
+  <button class="btn-retour" onclick="retourScenarios()">
+    <img src="images/retour.png" alt="Retour" class="img-retour" />
+  </button>
+</section>
+
+
+
+  <!-- Inclusion du JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
